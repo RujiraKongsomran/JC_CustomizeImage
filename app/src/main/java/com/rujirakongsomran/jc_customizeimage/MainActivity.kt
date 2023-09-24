@@ -3,8 +3,10 @@ package com.rujirakongsomran.jc_customizeimage
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -17,7 +19,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             JC_CustomizeImageTheme {
                 // A surface container using the 'background' color from the theme
-
+                MyApp()
             }
         }
     }
@@ -26,17 +28,22 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun MyApp() {
-    Column() {
+    Column(
+        modifier = Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.SpaceAround
+    ) {
         Row(
             modifier = Modifier
-                .fillMaxWidth()
-        ) {
+                .fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceAround
+            ) {
             CreateCircleShape()
             CreateRoundedCornerShape()
         }
         Row(
             modifier = Modifier
-                .fillMaxWidth()
+                .fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceAround
         ) {
             CreateSquashedOval()
             CreateBorderImage()
@@ -44,10 +51,20 @@ fun MyApp() {
         }
         Row(
             modifier = Modifier
-                .fillMaxWidth()
+                .fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceAround
         ) {
             CreateRainBowColorBrush()
             CreateBlendMode()
+
+        }
+        Row(
+            modifier = Modifier
+                .fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceAround
+        ) {
+            CreateImageFilterWithColorMatrix()
+            CreateBlurImage()
 
         }
     }
